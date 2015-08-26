@@ -137,19 +137,19 @@
 -include("emysql.hrl").
 
 -export_type([
-         gb_tree/0,
-         queue/0,
-         dict/0
+         t_gb_tree/0,
+         t_queue/0,
+         t_dict/0
 ]).
 
 -ifdef(namespaced_types).
--type gb_tree() :: gb_trees:tree().
--type queue() :: queue:queue().
--type dict() :: dict:dict().
+-type t_gb_tree() :: gb_trees:tree().
+-type t_queue() :: queue:queue().
+-type t_dict() :: dict:dict().
 -else.
--type gb_tree() :: gb_tree().
--type queue() :: queue().
--type dict() :: dict().
+-type t_gb_tree() :: gb_tree().
+-type t_queue() :: queue().
+-type t_dict() :: dict().
 -endif.
 
 
@@ -686,7 +686,7 @@ result_type(#eof_packet{})    -> eof.
 -spec as_dict(Result) -> Dict
   when
     Result :: #result_packet{},
-    Dict :: emysql:dict().
+    Dict :: t_dict().
 as_dict(Res) -> emysql_conv:as_dict(Res).
 
 
